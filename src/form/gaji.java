@@ -56,7 +56,7 @@ public class gaji extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         txtnama = new javax.swing.JTextField();
-        pilih = new javax.swing.JComboBox<>();
+        pilih = new javax.swing.JComboBox<String>();
         gaji_pokok = new javax.swing.JTextField();
         kontrak = new javax.swing.JRadioButton();
         tetap = new javax.swing.JRadioButton();
@@ -66,6 +66,9 @@ public class gaji extends javax.swing.JFrame {
         btnSimpan = new javax.swing.JButton();
         btnCari = new javax.swing.JButton();
         btnHapus = new javax.swing.JButton();
+        btnUbah = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        nip = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -114,7 +117,7 @@ public class gaji extends javax.swing.JFrame {
         });
 
         pilih.setForeground(new java.awt.Color(255, 0, 255));
-        pilih.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Direktur", "Manajer", "Staff", "Administrasi" }));
+        pilih.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Direktur", "Manajer", "Staff", "Administrasi" }));
         pilih.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pilihActionPerformed(evt);
@@ -180,6 +183,22 @@ public class gaji extends javax.swing.JFrame {
             }
         });
 
+        btnUbah.setForeground(new java.awt.Color(153, 153, 255));
+        btnUbah.setText("Ubah");
+        btnUbah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUbahActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("NIP");
+
+        nip.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nipActionPerformed(evt);
+            }
+        });
+
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
 
@@ -201,10 +220,7 @@ public class gaji extends javax.swing.JFrame {
                 .addComponent(jButton3)
                 .addGap(89, 89, 89))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(jLabel1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,38 +229,43 @@ public class gaji extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9))
+                        .addGap(90, 90, 90)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(kontrak)
-                            .addComponent(txtnama)
+                            .addComponent(txtnama, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
                             .addComponent(pilih, 0, 180, Short.MAX_VALUE)
-                            .addComponent(gaji_pokok)
+                            .addComponent(gaji_pokok, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
                             .addComponent(tetap)
-                            .addComponent(tunjangan)
-                            .addComponent(pajak)
-                            .addComponent(totgaji))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnHapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(35, 35, 35))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tunjangan, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                            .addComponent(pajak, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                            .addComponent(totgaji, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                            .addComponent(jLabel1)
+                            .addComponent(nip)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel6))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(214, 214, 214)
                         .addComponent(hitung)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnHapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnUbah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtnama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -284,6 +305,8 @@ public class gaji extends javax.swing.JFrame {
                         .addComponent(btnCari)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnHapus)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnUbah)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
@@ -394,7 +417,9 @@ public class gaji extends javax.swing.JFrame {
     }//GEN-LAST:event_tetapActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        nip.setText("");
         txtnama.setText("");
+        pilih.setSelectedIndex(0);
         gaji_pokok.setText("");
         tunjangan.setText("");
         pajak.setText("");
@@ -406,7 +431,7 @@ public class gaji extends javax.swing.JFrame {
 
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
         try{
-            int id = 0;
+            String vid = (String) nip.getText();
             String vnama = (String) txtnama.getText();
             String vjabatan = (String) pilih.getSelectedItem();
             String vpajak = (String) pajak.getText();
@@ -423,7 +448,7 @@ public class gaji extends javax.swing.JFrame {
             String stringConn = "jdbc:mysql://localhost/data_pegawai";
             Connection connection =DriverManager.getConnection(stringConn,"root","");
             Statement statement = connection.createStatement();    
-            String sql = "INSERT INTO tbl_pegawai VALUES('"+id+"' ,'"+vnama+"' ,'"+vjabatan+"' ,'"+vgaji+"' , '"+vstatus+"', '"+vtunj+"' , '"+vpajak+"' ,  '"+vtotgaji+"')";
+            String sql = "INSERT INTO tbl_pegawai VALUES('"+vid+"' ,'"+vnama+"' ,'"+vjabatan+"' ,'"+vgaji+"' , '"+vstatus+"', '"+vtunj+"' , '"+vpajak+"' ,  '"+vtotgaji+"')";
             statement.executeUpdate(sql);
             statement.close();
             connection.close();
@@ -438,15 +463,16 @@ public class gaji extends javax.swing.JFrame {
 
     private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
     try{
-        String cari = txtnama.getText();
+        String cnip = nip.getText();
         Class.forName("com.mysql.jdbc.Driver");
         Connection connection =DriverManager.getConnection("jdbc:mysql://localhost/data_pegawai","root","");
         Statement statement = connection.createStatement();
-        String sql = "SELECT * FROM tbl_pegawai WHERE nama = '"+cari+"'";
+        String sql = "SELECT * FROM tbl_pegawai WHERE nip = '"+cnip+"'";
         ResultSet rs = statement.executeQuery(sql);
             
         //Menghasilkan setelan
         if(rs.next()){
+            nip.setText(rs.getString(1));
             txtnama.setText(rs.getString(2));
             pilih.setSelectedItem(rs.getString(3));
             gaji_pokok.setText(rs.getString(4));
@@ -459,7 +485,7 @@ public class gaji extends javax.swing.JFrame {
             tunjangan.setText(rs.getString(6));
             pajak.setText(rs.getString(7));
             totgaji.setText(rs.getString(8));
-            txtnama.requestFocus();
+            nip.requestFocus();
             
                         
         }else{
@@ -475,15 +501,16 @@ public class gaji extends javax.swing.JFrame {
 
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
         try{
-            String cari = txtnama.getText();
+            String cnip = nip.getText();
             Class.forName("com.mysql.jdbc.Driver");
             Connection connection =DriverManager.getConnection("jdbc:mysql://localhost/data_pegawai","root","");
             Statement statement = connection.createStatement();
-            String sql = "DELETE FROM tbl_pegawai WHERE nama = '"+cari+"'";
+            String sql = "DELETE FROM tbl_pegawai WHERE nip = '"+cnip+"'";
             statement.executeUpdate(sql);
             statement.close();
             connection.close();
             JOptionPane.showMessageDialog(null,"Data Sudah Dihapus");
+            nip.setText("");
             txtnama.setText("");
             gaji_pokok.setText("");
             tunjangan.setText("");
@@ -492,12 +519,44 @@ public class gaji extends javax.swing.JFrame {
             kontrak.setSelected(false);
             tetap.setSelected(false);
             
-            txtnama.requestFocus();
+            nip.requestFocus();
         }catch(Exception e){
             System.out.println("error" +e);
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_btnHapusActionPerformed
+
+    private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
+        // TODO add your handling code here:
+        try{
+            String tnip = nip.getText();
+            String tnama = (String) txtnama.getText();
+            String tjabatan = (String) pilih.getSelectedItem();
+            String tgaji = (String) gaji_pokok.getText();
+            
+            String tstatus= (String) "";
+            if(kontrak.isSelected() == true)
+                 tstatus = kontrak.getText();
+             if(tetap.isSelected() == true)
+                tstatus = tetap.getText();
+          
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection connection =DriverManager.getConnection("jdbc:mysql://localhost/data_pegawai","root","");
+            Statement statement = connection.createStatement();
+            String sql = "UPDATE tbl_pegawai SET nama='"+tnama+"' ,jabatan='"+tjabatan+"' , gaji_pokok='"+tgaji+"' , status='"+tstatus+"' WHERE nip='"+tnip+"'";
+            
+            statement.executeUpdate(sql);
+            statement.close();
+            connection.close();
+            JOptionPane.showMessageDialog(null , "Data berhasil di Edit");
+        }catch(Exception e){
+           System.out.println("Error" +e); 
+        }
+    }//GEN-LAST:event_btnUbahActionPerformed
+
+    private void nipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nipActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nipActionPerformed
 
     /**
      * @param args the command line arguments
@@ -538,6 +597,7 @@ public class gaji extends javax.swing.JFrame {
     private javax.swing.JButton btnCari;
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnSimpan;
+    private javax.swing.JButton btnUbah;
     private javax.swing.JTextField gaji_pokok;
     private javax.swing.JButton hitung;
     private javax.swing.JButton jButton2;
@@ -550,10 +610,12 @@ public class gaji extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JRadioButton kontrak;
+    private javax.swing.JTextField nip;
     private javax.swing.JTextField pajak;
     private javax.swing.JComboBox<String> pilih;
     private javax.swing.JRadioButton tetap;
