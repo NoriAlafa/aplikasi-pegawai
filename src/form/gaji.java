@@ -464,10 +464,11 @@ public class gaji extends javax.swing.JFrame {
     private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
     try{
         String cnip = nip.getText();
+        String cnama= txtnama.getText();
         Class.forName("com.mysql.jdbc.Driver");
         Connection connection =DriverManager.getConnection("jdbc:mysql://localhost/data_pegawai","root","");
         Statement statement = connection.createStatement();
-        String sql = "SELECT * FROM tbl_pegawai WHERE nip = '"+cnip+"'";
+        String sql = "SELECT * FROM tbl_pegawai WHERE nip = '"+cnip+"' OR nama='"+cnama+"'";
         ResultSet rs = statement.executeQuery(sql);
             
         //Menghasilkan setelan
@@ -538,12 +539,15 @@ public class gaji extends javax.swing.JFrame {
             if(kontrak.isSelected() == true)
                  tstatus = kontrak.getText();
              if(tetap.isSelected() == true)
-                tstatus = tetap.getText();
-          
+                tstatus = tetap.getText(); 
+             
+            String ttunjangan = (String) tunjangan.getText();
+            String tpajak = (String) pajak.getText();
+            String ttotgaji = (String) totgaji.getText();
             Class.forName("com.mysql.jdbc.Driver");
             Connection connection =DriverManager.getConnection("jdbc:mysql://localhost/data_pegawai","root","");
             Statement statement = connection.createStatement();
-            String sql = "UPDATE tbl_pegawai SET nama='"+tnama+"' ,jabatan='"+tjabatan+"' , gaji_pokok='"+tgaji+"' , status='"+tstatus+"' WHERE nip='"+tnip+"'";
+            String sql = "UPDATE tbl_pegawai SET nama='"+tnama+"' ,jabatan='"+tjabatan+"' , gaji_pokok='"+tgaji+"' , status='"+tstatus+"' , tunjangan='"+ttunjangan+"' , pajak='"+tpajak+"' ,total_gaji='"+ttotgaji+"' WHERE nip='"+tnip+"'";
             
             statement.executeUpdate(sql);
             statement.close();
